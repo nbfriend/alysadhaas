@@ -1005,7 +1005,7 @@
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="handleSubmit(event)" novalidate>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
         <h3>Send a message</h3>
         <p class="sub">All information is kept strictly confidential.</p>
         <div class="form-row">
@@ -1026,11 +1026,11 @@
           <label for="service">I'm interested in</label>
           <select id="service" name="service">
             <option value="">Select a service…</option>
-            <option>Individual Therapy</option>
-            <option>Couples Therapy</option>
-            <option>Intensive Session</option>
-            <option>Telehealth</option>
-            <option>Free Consultation</option>
+            <option value="individual">Individual Therapy</option>
+            <option value="couples">Couples Therapy</option>
+            <option value="intensive">Intensive Session</option>
+            <option value="telehealth">Telehealth</option>
+            <option value="consultation">Free Consultation</option>
           </select>
         </div>
         <div class="form-group">
@@ -1038,7 +1038,7 @@
           <textarea id="message" name="message" placeholder="Feel free to share a bit about what's bringing you to therapy…"></textarea>
         </div>
         <button type="submit" class="btn btn-filled">Send Message</button>
-        <p id="form-success" style="display:none; margin-top:1rem; color:#8B9E8A; font-size:0.9rem;">
+        <p id="form-success" role="status" aria-live="polite" style="display:none; margin-top:1rem; color:#8B9E8A; font-size:0.9rem;">
           Thank you — I'll be in touch within one business day.
         </p>
       </form>
