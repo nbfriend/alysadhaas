@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alysa Dhaas, LMFT | Therapy &amp; Counseling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage:       #8B9E8A;
+      --sage-light: #C5D3C4;
+      --sage-pale:  #EBF0EB;
+      --cream:      #FAF8F5;
+      --warm:       #F2EDE6;
+      --sand:       #C4A882;
+      --text:       #3A3A3A;
+      --text-light: #6B6B6B;
+      --white:      #FFFFFF;
+      --nav-h:      68px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.75;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Typography helpers ───────────────────────────────────────────── */
+    .section-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 0.6rem;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); }
+    h3 { font-size: 1.35rem; font-weight: 500; }
+
+    p { font-size: 1rem; color: var(--text-light); max-width: 64ch; }
+
+    /* ── Nav ──────────────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(250, 248, 245, 0.96);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      z-index: 1000;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    #nav.scrolled { border-bottom-color: var(--sage-pale); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    .nav-logo span { color: var(--sage); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--sage); }
+
+    .nav-cta {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.4rem;
+      border: 1px solid var(--sage);
+      color: var(--sage) !important;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--sage) !important;
+      color: var(--white) !important;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--text);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: var(--cream);
+      padding: 2rem 5%;
+      border-bottom: 1px solid var(--sage-pale);
+      z-index: 999;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu ul { list-style: none; }
+
+    .mobile-menu li { padding: 0.9rem 0; border-bottom: 1px solid var(--sage-pale); }
+
+    .mobile-menu a {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: var(--nav-h);
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 5% 6rem 8%;
+    }
+
+    .hero-text h1 {
+      font-weight: 300;
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-text h1 em {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--sage);
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      margin-bottom: 2.4rem;
+      max-width: 46ch;
+    }
+
+    .btn {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--sage);
+      color: var(--sage);
+      border-radius: 2px;
+      transition: background 0.25s, color 0.25s;
+      align-self: flex-start;
+    }
+
+    .btn:hover { background: var(--sage); color: var(--white); }
+
+    .btn-filled {
+      background: var(--sage);
+      color: var(--white);
+    }
+
+    .btn-filled:hover { background: #7a8e79; border-color: #7a8e79; }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-inner {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      background: linear-gradient(160deg, var(--sage-light) 0%, var(--sand) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    /* Decorative photo placeholder */
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      background:
+        radial-gradient(ellipse at 60% 40%, rgba(197, 211, 196, 0.6) 0%, transparent 60%),
+        radial-gradient(ellipse at 30% 70%, rgba(196, 168, 130, 0.4) 0%, transparent 50%),
+        linear-gradient(180deg, #d4ddd3 0%, #c9bba8 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .photo-placeholder svg { opacity: 0.35; }
+
+    /* ── Shared section ───────────────────────────────────────────────── */
+    .section {
+      padding: 6rem 8%;
+    }
+
+    .section-narrow {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section h2 { margin-bottom: 1.4rem; }
+
+    .section p + p { margin-top: 1rem; }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--sand);
+      margin: 1.4rem auto;
+    }
+
+    /* ── About ────────────────────────────────────────────────────────── */
+    #about {
+      background: var(--warm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(197,211,196,0.7) 0%, transparent 55%),
+        linear-gradient(170deg, #c8d5c7 0%, #b8a896 100%);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-photo svg { opacity: 0.3; }
+
+    .about-accent-box {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 48%;
+      aspect-ratio: 1;
+      background: var(--sage-pale);
+      z-index: -1;
+      border-radius: 2px;
+    }
+
+    .about-text .section-eyebrow { text-align: left; }
+    .about-text h2 { text-align: left; }
+    .about-text p { text-align: left; max-width: 56ch; }
+
+    .credential-list {
+      list-style: none;
+      margin-top: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .credential-list li {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .credential-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 5px;
+      height: 1px;
+      background: var(--sand);
+    }
+
+    /* ── Specialties ──────────────────────────────────────────────────── */
+    #specialties {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    #specialties h2 { margin-bottom: 0.5rem; }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.8rem;
+      margin-top: 3.5rem;
+      text-align: left;
+    }
+
+    .specialty-card {
+      background: var(--white);
+      border: 1px solid var(--sage-pale);
+      border-radius: 2px;
+      padding: 2rem 1.6rem;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .specialty-card:hover {
+      box-shadow: 0 8px 28px rgba(139, 158, 138, 0.14);
+      transform: translateY(-3px);
+    }
+
+    .specialty-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--sage-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .specialty-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .specialty-card p {
+      font-size: 0.9rem;
+      max-width: none;
+    }
+
+    /* ── Services ─────────────────────────────────────────────────────── */
+    #services {
+      background: var(--sage-pale);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .services-text .section-eyebrow,
+    .services-text h2,
+    .services-text p { text-align: left; }
+
+    .services-text p { max-width: 52ch; }
+
+    .service-list {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .service-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--sage-light);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2.4rem;
+    }
+
+    .service-item h3 { font-size: 1.05rem; margin-bottom: 0.2rem; }
+
+    .service-item p { font-size: 0.9rem; max-width: none; }
+
+    .services-aside {
+      background: var(--white);
+      border-radius: 2px;
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(139, 158, 138, 0.2);
+    }
+
+    .services-aside h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .services-aside .sub {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 1.8rem;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--sage-pale);
+    }
+
+    .price-item:last-of-type { border-bottom: none; }
+
+    .price-item span:first-child { font-size: 0.92rem; color: var(--text); }
+
+    .price-item span:last-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--sage);
+    }
+
+    .insurance-note {
+      margin-top: 1.4rem;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ── Quote ────────────────────────────────────────────────────────── */
+    #quote {
+      background: var(--sage);
+      padding: 5rem 8%;
+      text-align: center;
+    }
+
+    #quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      max-width: 780px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    #quote cite {
+      display: block;
+      margin-top: 1.2rem;
+      font-style: normal;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    /* ── Contact ──────────────────────────────────────────────────────── */
+    #contact {
+      background: var(--warm);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info .section-eyebrow,
+    .contact-info h2 { text-align: left; }
+
+    .contact-info p { max-width: 50ch; }
+
+    .contact-details {
+      list-style: none;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-details li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      color: var(--text-light);
+    }
+
+    .contact-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      color: var(--sage);
+    }
+
+    .inclusive-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.6rem 1rem;
+      background: var(--sage-pale);
+      border-radius: 2px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--white);
+      border-radius: 2px;
+      padding: 2.8rem;
+      border: 1px solid rgba(139, 158, 138, 0.18);
+    }
+
+    .contact-form h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-form .sub {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--sage-pale);
+      border-radius: 2px;
+      background: var(--cream);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--sage);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .contact-form .btn { width: 100%; text-align: center; align-self: auto; }
+
+    /* ── Footer ───────────────────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255, 255, 255, 0.55);
+      padding: 3rem 8%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    footer nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    footer nav a {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s;
+    }
+
+    footer nav a:hover { color: rgba(255,255,255,0.9); }
+
+    .footer-copy { font-size: 0.75rem; }
+
+    /* ── Responsive ───────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .section { padding: 4.5rem 6%; }
+
+      #hero { grid-template-columns: 1fr; }
+
+      .hero-text {
+        padding: 4rem 6% 3rem;
+        order: 2;
+      }
+
+      .hero-image { order: 1; }
+
+      .photo-placeholder { min-height: 320px; }
+
+      #about,
+      #services,
+      #contact {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-image-wrap { max-width: 420px; margin: 0 auto; }
+
+      .about-accent-box { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .section { padding: 4rem 5%; }
+
+      .specialty-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      footer { flex-direction: column; text-align: center; }
+
+      footer nav ul { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ────────────────────────────────────────────── -->
+  <header id="nav">
+    <a href="#hero" class="nav-logo">Alysa Dhaas<span>, LMFT</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#specialties">Specialties</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#specialties" onclick="closeMenu()">Specialties</a></li>
+      <li><a href="#services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ── Hero ───────────────────────────────────────────────── -->
+    <section id="hero">
+      <div class="hero-text">
+        <p class="section-eyebrow">Licensed Marriage &amp; Family Therapist</p>
+        <h1>A space to <em>heal,</em><br>grow, and be<br>fully yourself</h1>
+        <p>
+          I offer compassionate, evidence-based therapy for individuals and
+          couples navigating anxiety, relationship challenges, life transitions,
+          and more. Serving clients in-person and via telehealth.
+        </p>
+        <a href="#contact" class="btn btn-filled">Schedule a Consultation</a>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <div class="photo-placeholder">
+          <!-- Decorative silhouette -->
+          <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="28" r="16" fill="#6d8a6c"/>
+            <ellipse cx="45" cy="72" rx="26" ry="20" fill="#6d8a6c"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── About ──────────────────────────────────────────────── -->
+    <section id="about" class="section">
+      <div class="about-image-wrap" aria-hidden="true">
+        <div class="about-photo">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="25" r="14" fill="#7a8e79"/>
+            <ellipse cx="40" cy="62" rx="23" ry="18" fill="#7a8e79"/>
+          </svg>
+        </div>
+        <div class="about-accent-box"></div>
+      </div>
+      <div class="about-text">
+        <p class="section-eyebrow">About Alysa</p>
+        <h2>Therapy rooted in warmth &amp; evidence</h2>
+        <div class="divider" style="margin: 1rem 0;"></div>
+        <p>
+          I'm Alysa Dhaas, a Licensed Marriage &amp; Family Therapist with a
+          deep commitment to creating a safe, non-judgmental space for every
+          person who walks through my door — or logs onto my screen.
+        </p>
+        <p>
+          My approach is collaborative and integrative, drawing from
+          Emotionally Focused Therapy (EFT), Internal Family Systems (IFS),
+          and mindfulness-based practices. I believe healing happens in
+          relationship, and I am honored to walk alongside you.
+        </p>
+        <p>
+          I am LGBTQ+ affirming and welcoming of all relationship structures,
+          cultural backgrounds, and identities.
+        </p>
+        <ul class="credential-list">
+          <li>Licensed Marriage &amp; Family Therapist (LMFT)</li>
+          <li>M.S. in Marriage and Family Therapy</li>
+          <li>Trained in Emotionally Focused Therapy (EFT)</li>
+          <li>Internal Family Systems (IFS) Level 1 Trained</li>
+          <li>Member, American Association for Marriage &amp; Family Therapy</li>
+        </ul>
+        <a href="#contact" class="btn" style="margin-top: 2.2rem;">Work with Me</a>
+      </div>
+    </section>
+
+    <!-- ── Specialties ────────────────────────────────────────── -->
+    <section id="specialties" class="section">
+      <div class="section-narrow">
+        <p class="section-eyebrow">Focus Areas</p>
+        <h2>What I can help with</h2>
+        <div class="divider"></div>
+        <p>
+          Every person's journey is unique. I work with a range of concerns
+          and am always happy to discuss whether my practice is a good fit
+          for your needs.
+        </p>
+      </div>
+
+      <div class="specialty-grid">
+
+        <div class="specialty-card">
+          <div class="specialty-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Couples &amp; Relationships</h3>
+          <p>Rebuild connection, improve communication, and strengthen the bond that matters most.</p>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Anxiety &amp; Stress</h3>
+          <p>Learn practical tools to calm your nervous system and reclaim peace in everyday life.</p>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+          </div>
+          <h3>Life Transitions</h3>
+          <p>Career changes, moves, loss, and identity shifts — finding footing through uncertainty.</p>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Trauma &amp; PTSD</h3>
+          <p>A safe, paced approach to processing difficult experiences and reclaiming your story.</p>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+              <line x1="6" y1="1" x2="6" y2="4"/>
+              <line x1="10" y1="1" x2="10" y2="4"/>
+              <line x1="14" y1="1" x2="14" y2="4"/>
+            </svg>
+          </div>
+          <h3>Depression &amp; Mood</h3>
+          <p>Understanding what's beneath low moods and building toward a more fulfilling life.</p>
+        </div>
+
+        <div class="specialty-card">
+          <div class="specialty-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3>ADHD &amp; Neurodiversity</h3>
+          <p>Embracing how your brain works and finding strategies that actually fit your life.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Services ───────────────────────────────────────────── -->
+    <section id="services" class="section">
+      <div class="services-text">
+        <p class="section-eyebrow">How We Work Together</p>
+        <h2>Services offered</h2>
+        <div class="divider" style="margin: 1rem 0;"></div>
+        <p>
+          Whether you're navigating a specific challenge or ready for
+          deeper personal growth, I offer flexible options to meet
+          you where you are.
+        </p>
+        <ul class="service-list">
+          <li class="service-item">
+            <span class="service-num">01</span>
+            <div>
+              <h3>Individual Therapy</h3>
+              <p>50-minute weekly sessions focused on your goals, your pace, and your whole self.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-num">02</span>
+            <div>
+              <h3>Couples Therapy</h3>
+              <p>Guided sessions to deepen understanding, resolve conflict, and strengthen your partnership.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-num">03</span>
+            <div>
+              <h3>Intensive Sessions</h3>
+              <p>Extended 90- or 120-minute sessions for clients who want to move deeper, faster.</p>
+            </div>
+          </li>
+          <li class="service-item">
+            <span class="service-num">04</span>
+            <div>
+              <h3>Telehealth</h3>
+              <p>Secure video sessions available statewide — same quality care, from the comfort of home.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="services-aside">
+        <h3>Investment</h3>
+        <p class="sub">Transparent, flat-rate pricing.</p>
+        <div class="price-item">
+          <span>Individual Session (50 min)</span>
+          <span>$175</span>
+        </div>
+        <div class="price-item">
+          <span>Couples Session (50 min)</span>
+          <span>$195</span>
+        </div>
+        <div class="price-item">
+          <span>Extended Session (90 min)</span>
+          <span>$260</span>
+        </div>
+        <div class="price-item">
+          <span>Free Consultation (15 min)</span>
+          <span>No charge</span>
+        </div>
+        <p class="insurance-note">
+          I am an out-of-network provider. I can provide a superbill for
+          potential insurance reimbursement. Sliding scale spots are
+          available — please ask.
+        </p>
+        <a href="#contact" class="btn btn-filled" style="margin-top: 1.8rem; display: block; text-align: center;">Book a Free Consultation</a>
+      </div>
+    </section>
+
+    <!-- ── Quote ──────────────────────────────────────────────── -->
+    <section id="quote">
+      <blockquote>
+        "The curious paradox is that when I accept myself just as I am,
+        then I can change."
+        <cite>— Carl Rogers</cite>
+      </blockquote>
+    </section>
+
+    <!-- ── Contact ────────────────────────────────────────────── -->
+    <section id="contact" class="section">
+      <div class="contact-info">
+        <p class="section-eyebrow">Let's Connect</p>
+        <h2>Ready to take<br>the first step?</h2>
+        <div class="divider" style="margin: 1rem 0;"></div>
+        <p>
+          Reaching out can feel vulnerable. I make it simple and
+          judgment-free. Send a message below or reach me directly —
+          I respond within one business day.
+        </p>
+        <ul class="contact-details">
+          <li>
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>123 Healing Way, Suite 200<br>San Francisco, CA 94105</span>
+          </li>
+          <li>
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>hello@alysadhaas.com</span>
+          </li>
+          <li>
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.65 4.55 2 2 0 0 1 3.62 2.34h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.93 17z"/>
+            </svg>
+            <span>(415) 555-0192</span>
+          </li>
+        </ul>
+        <div class="inclusive-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B9E8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          LGBTQ+ Affirming &amp; Polyamory-Informed
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)" novalidate>
+        <h3>Send a message</h3>
+        <p class="sub">All information is kept strictly confidential.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" required autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+        <div class="form-group">
+          <label for="service">I'm interested in</label>
+          <select id="service" name="service">
+            <option value="">Select a service…</option>
+            <option>Individual Therapy</option>
+            <option>Couples Therapy</option>
+            <option>Intensive Session</option>
+            <option>Telehealth</option>
+            <option>Free Consultation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Feel free to share a bit about what's bringing you to therapy…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-filled">Send Message</button>
+        <p id="form-success" style="display:none; margin-top:1rem; color:#8B9E8A; font-size:0.9rem;">
+          Thank you — I'll be in touch within one business day.
+        </p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-logo">Alysa Dhaas, LMFT</div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#specialties">Specialties</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <p class="footer-copy">&copy; 2025 Alysa Dhaas, LMFT. All rights reserved.</p>
+  </footer>
+
+  <script>
+    /* Sticky nav shadow */
+    window.addEventListener('scroll', function () {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    /* Mobile menu toggle */
+    function toggleMenu(btn) {
+      const menu = document.getElementById('mobileMenu');
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      menu.setAttribute('aria-hidden', !open);
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.remove('open');
+      document.querySelector('.hamburger').setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
+    }
+
+    /* Fake form submission */
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-success').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
