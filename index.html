@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aly Sada, LCSW | Psychotherapy</title>
+    <meta
+      name="description"
+      content="Compassionate psychotherapy in a warm, grounded, and collaborative setting."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="#top">Aly Sada, LCSW</a>
+        <nav aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Psychotherapy for adults in California</p>
+            <h1>Space to slow down, feel deeply, and reconnect with yourself.</h1>
+            <p class="hero-copy">
+              Therapy can help you move through anxiety, grief, relationship challenges, and life transitions with greater clarity and self-trust.
+            </p>
+            <a class="button" href="#contact">Schedule a consultation</a>
+          </div>
+          <aside class="hero-card" aria-label="Session details">
+            <h2>Start where you are</h2>
+            <p>
+              50-minute virtual sessions for individuals seeking insight, resilience, and meaningful change.
+            </p>
+            <ul>
+              <li>Online sessions statewide</li>
+              <li>Weekday evening availability</li>
+              <li>Free 15-minute consultation</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="approach" class="section muted">
+        <div class="container stack">
+          <p class="eyebrow">My approach</p>
+          <h2>Warm, relational, and practical</h2>
+          <p>
+            My style is collaborative and trauma-informed. Together, we’ll make sense of patterns that no longer serve you, cultivate healthier boundaries, and build tools that support your day-to-day life.
+          </p>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="container">
+          <p class="eyebrow">How I can help</p>
+          <div class="cards">
+            <article class="service-card">
+              <h3>Anxiety & stress</h3>
+              <p>Learn grounding skills and identify beliefs that keep you stuck in overthinking and overwhelm.</p>
+            </article>
+            <article class="service-card">
+              <h3>Relationships</h3>
+              <p>Explore attachment patterns, communication, and boundaries to build more secure connection.</p>
+            </article>
+            <article class="service-card">
+              <h3>Life transitions</h3>
+              <p>Navigate changes in identity, career, and family life with support, clarity, and confidence.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section muted">
+        <div class="container about-grid">
+          <div class="portrait" role="img" aria-label="Abstract calming gradient background"></div>
+          <div>
+            <p class="eyebrow">About</p>
+            <h2>I’m Aly, a licensed clinical social worker.</h2>
+            <p>
+              I support adults who are navigating anxiety, identity questions, and relationship concerns. In our work, I prioritize authenticity, cultural humility, and emotional safety.
+            </p>
+            <p>
+              I draw from psychodynamic, mindfulness-based, and somatic approaches based on your needs and goals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container stack">
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s talk</h2>
+          <p>
+            Reach out for a free consultation and we can discuss what support might look like.
+          </p>
+          <a class="button" href="mailto:hello@alysadatherapy.com">hello@alysadatherapy.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <p>© <span id="year"></span> Aly Sada, LCSW</p>
+        <p>Psychotherapy • California</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
